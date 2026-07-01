@@ -1,6 +1,6 @@
 # Active Spec
 
 - Repository ID: `environment`
-- Spec ID: `SPEC-001`
-- Status: `active`
-- Next action: `review tasks`
+- Spec ID: `SPEC-002`
+- Status: `completed`
+- Next action: `none`

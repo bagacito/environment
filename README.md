@@ -11,6 +11,26 @@ import { Environment } from "environment"
 ```
 
 `Environment` is an `ObjectAccumulator` instance.
+`Environment.accumulate(defaultConfig)` preserves the default config fields in the returned TypeScript type and keeps accumulator methods available for chaining.
+
+```ts
+type Config = {
+  mode: string;
+  active: boolean;
+  sequence: number;
+};
+
+const defaultConfig: Config = {
+  mode: "maintenance",
+  active: true,
+  sequence: 1,
+};
+
+const environment = Environment.accumulate(defaultConfig);
+
+environment.mode;
+environment.accumulate({ region: "eu-west-1" });
+```
 
 ## Behavior
 

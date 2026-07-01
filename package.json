@@ -1,6 +1,6 @@
 {
   "name": "environment",
-  "version": "3.10.17",
+  "version": "0.0.1",
   "description": "template for ts projects",
   "type": "module",
   "exports": {
@@ -26,10 +26,11 @@
     "reset": "rm -rf * && git checkout . && git pull && npm run do-install",
     "build": "build-scripts --dev",
     "build:prod": "build-scripts --prod",
+    "typecheck": "tsc -p ./tsconfig.typecheck.json",
     "test": "npm run test:all",
-    "test:unit": "jest --testPathPatterns=\"/tests/unit\" --passWithNoTests --detectOpenHandles",
-    "test:integration": "jest --testPathPatterns=\"/tests/(integration)\" --passWithNoTests --detectOpenHandles",
-    "test:all": "jest --testPathPatterns=\"/tests\" --passWithNoTests --detectOpenHandles",
+    "test:unit": "npm run typecheck && jest --testPathPatterns=\"/tests/unit\" --passWithNoTests --detectOpenHandles",
+    "test:integration": "npm run typecheck && jest --testPathPatterns=\"/tests/(integration)\" --passWithNoTests --detectOpenHandles",
+    "test:all": "npm run typecheck && jest --testPathPatterns=\"/tests\" --passWithNoTests --detectOpenHandles",
     "test:dist": "TEST_TARGET=lib npm run test:all && TEST_TARGET=dist npm run test:all",
     "test:circular": "dpdm -T --no-warning --no-tree ./src/index.ts",
     "coverage": "rimraf ./workdocs/reports/data/*.json && npm run test:all -- --coverage --config=./workdocs/reports/jest.coverage.config.cjs",
@@ -93,6 +94,7 @@
   },
   "homepage": "https://github.com/bagacito/environment#readme",
   "devDependencies": {
-    "@decaf-ts/utils": "latest"
+    "@decaf-ts/utils": "latest",
+    "@types/node": "^26.0.1"
   }
 }
