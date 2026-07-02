@@ -1,5 +1,5 @@
 # Spec Sequence
 
 - Repository ID: `environment`
-- Next Spec Number: `003`
-- Last Allocated Spec: `SPEC-002`
+- Next Spec Number: `009`
+- Last Allocated Spec: `SPEC-008`
